@@ -7,6 +7,7 @@ rotateOptions = document.querySelectorAll(".rotate button"), //Filters
 previewImage = document.querySelector(".preview-image img"), //Image placeholder for display
 resetFilterBtn = document.querySelector(".reset-filter"), //Reset button
 chooseImgBtn = document.querySelector(".choose-img");
+saveImgBtn = document.querySelector(".save-img");
 
 
 //Show selected value by default as
@@ -121,6 +122,32 @@ const resetFilter = () => {
 	applyFilters();
 }
 
+//Save image button
+const saveImage = () => {
+	const canvas = document.createElement("canvas"); //creating a canvas element
+	const ctx = canvas.getContext("2d");//canvas.getContext returns a drawing context on the canvas
+	
+	//Setting the width and height to the image
+	canvas.width = previewImage.naturalWidth;
+	canvas.height = previewImage.naturalHeight;
+
+	//Applying user selected filters to the canvas filter
+	ctx.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversation}%) grayscale(${grayscale}%)`;
+	
+	ctx.translate(canvas.width / 2, canvas.height / 2); //translating canvas from center
+
+	//Apply flip filters
+	ctx.scale(flipHorizontal,flipVertical);
+
+	//Apply rotation filters
+	if(rotate !== 0) {
+		ctx.rotate(rotate * Math.PI / 180);
+	}
+
+	ctx.drawImage(previewImage, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
+	document.body.appendChild(canvas);
+}
+
 fileInput.addEventListener("change", loadImage);
 
 //Change filter value according to slider position
@@ -128,4 +155,7 @@ filterSlider.addEventListener("input", updateFilter);
 
 //Reset button
 resetFilterBtn.addEventListener("click", resetFilter);
+
+//save image
+saveImgBtn.addEventListener("click", saveImage);
 chooseImgBtn.addEventListener("click", () => fileInput.click());
