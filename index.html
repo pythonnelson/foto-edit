@@ -20,14 +20,14 @@
 				<div class="filter">
 					<label class="title">Filters</label>
 					<div class="options">
-						<button class="active">Brightness</button>
-						<button>Saturation</button>
-						<button>Inversion</button>
-						<button>Gray Scale</button>
+						<button id="brightness" class="active">Brightness</button>
+						<button id="saturation">Saturation</button>
+						<button id="inversion">Inversion</button>
+						<button id="grayscale">Gray Scale</button>
 					</div>
 					<!-- ============= SLIDER ================ -->
 					<div class="slider">
-						<div class="title filter-info">
+						<div class="filter-info title">
 							<p class="name">Brightness</p>
 							<p class="value">100%</p>
 						</div>
@@ -67,6 +67,7 @@
 				Reset Filters
 			</button>
 			<div class="row">
+				<input type="file" class="file-input" accept="image/*" hidden>
 				<button class="choose-img">
 					<i class="fa-solid fa-file"></i>
 					Choose Image
@@ -81,6 +82,6 @@
 	</div>
 	<!-- =================== //MAIN CONTAINER ==================== -->
 
-	<link rel="stylesheet" type="text/css" href="assets/js/script.js">
+	<script type="text/javascript" src="assets/js/script.js"></script>
 </body>
 </html>
