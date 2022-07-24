@@ -5,6 +5,7 @@ filterValue = document.querySelector(".filter-info .value"), //Change Filter val
 filterSlider = document.querySelector(".slider input"), //Change Filter value
 rotateOptions = document.querySelectorAll(".rotate button"), //Filters
 previewImage = document.querySelector(".preview-image img"), //Image placeholder for display
+resetFilterBtn = document.querySelector(".reset-filter"), //Reset button
 chooseImgBtn = document.querySelector(".choose-img");
 
 
@@ -111,9 +112,20 @@ rotateOptions.forEach(option => {
 	});
 });
 
+//Reset back to default
+const resetFilter = () => {
+	brightness = 100; saturation = 100; inversation = 0; grayscale = 0;
+	rotate = 0; flipHorizontal = 1; flipVertical = 1;
+	filterOptions[0].click();
+	//Call the apply function
+	applyFilters();
+}
+
 fileInput.addEventListener("change", loadImage);
 
 //Change filter value according to slider position
 filterSlider.addEventListener("input", updateFilter);
 
+//Reset button
+resetFilterBtn.addEventListener("click", resetFilter);
 chooseImgBtn.addEventListener("click", () => fileInput.click());
