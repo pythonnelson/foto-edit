@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Simple Image Editor</title>
+	<link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+</head>
+<body>
+	<!-- =================== MAIN CONTAINER ==================== -->
+	<div class="container">
+		<h2>Simple Image Editor</h2>
+		<!-- =============== WRAPPER ===================== -->
+		<div class="wrapper">
+			<!-- =================== EDITOR PANEL ================== -->
+			<div class="editor-panel">
+				<!-- ============= FILTER ================ -->
+				<div class="filter">
+					<label class="title">Filters</label>
+					<div class="options">
+						<button class="active">Brightness</button>
+						<button>Saturation</button>
+						<button>Inversion</button>
+						<button>Gray Scale</button>
+					</div>
+					<!-- ============= SLIDER ================ -->
+					<div class="slider">
+						<div class="filter-info">
+							<p class="name">Brightness</p>
+							<p class="value">100%</p>
+						</div>
+						<input type="range" value="100" min="0" max="200" />
+					</div>
+					<!-- ============= //SLIDER ================ -->
+				</div>
+				<!-- ============= //FILTER ================ -->
+
+				<!-- ============= ROTATE ================ -->
+				<div class="rotate">
+					<label class="title">Rotate & Flip</label>
+					<div class="options">
+						<button><i class="fa-solid fa-rotate-left"></i></button>
+						<button><i class="fa-solid fa-rotate-right"></i></button>
+						<button><i class="bx bx-reflect-vertical"></i></button>
+						<button><i class="bx bx-reflect-horizontal"></i></button>
+					</div>
+
+				</div>
+				<!-- ============= //ROTATE ================ -->
+			</div>
+			<!-- =================== //EDITOR PANEL ================== -->
+
+			<!-- ================== IMAGE PREVIEW PANEL ================ -->
+			<div class="preview-image">
+				<img src="assets/img/image-placeholder.svg" alt="preview-img">
+			</div>
+			<!-- ================== //IMAGE PREVIEW PANEL ================ -->
+		</div>
+		<!-- =============== //WRAPPER ===================== -->
+
+		<!-- =================== CONTROLS ================= -->
+		<div class="controls">
+			<button class="reset-filter">Reset Filters</button>
+			<div class="row">
+				<button class="choose-img">Choose Image</button>
+				<button class="save-img">Save Image</button>
+			</div>
+		</div>
+		<!-- =================== //CONTROLS ================= -->
+	</div>
+	<!-- =================== //MAIN CONTAINER ==================== -->
+
+	<link rel="stylesheet" type="text/css" href="assets/js/script.js">
+</body>
+</html>
