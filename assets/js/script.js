@@ -3,12 +3,27 @@ filterOptions = document.querySelectorAll(".filter button"), //Filters
 filterName = document.querySelector(".filter-info .name"), //Change Filter name
 filterValue = document.querySelector(".filter-info .value"), //Change Filter value
 filterSlider = document.querySelector(".slider input"), //Change Filter value
+rotateOptions = document.querySelectorAll(".rotate button"), //Filters
 previewImage = document.querySelector(".preview-image img"), //Image placeholder for display
 chooseImgBtn = document.querySelector(".choose-img");
 
 
 //Show selected value by default as
 let brightness = 100, saturation = 100, inversation = 0, grayscale = 0;
+
+
+//Declaring Rotate buttons
+let rotate = 0, flipHorizontal = 1, flipVertical = 1;
+
+//Apply the selected filter in the image
+const applyFilters = () => {
+	//Pass rotate value to the image
+	previewImage.style.transform = `rotate(${rotate}deg) scale(${flipHorizontal}, ${flipVertical})`;
+
+	//Apply filters to the image selected and displayed
+	previewImage.style.filter = `brightness(${brightness}%) saturate(${saturation}%) invert(${inversation}%) grayscale(${grayscale}%)`;
+}
+
 
 // Display selected image
 const loadImage = () => {
@@ -72,7 +87,29 @@ const updateFilter = () => {
 	}else {
 		grayscale = filterSlider.value;
 	}
+
+	//Call the apply function
+	applyFilters();
 }
+
+//Rotate buttons
+rotateOptions.forEach(option => {
+	option.addEventListener("click", () => {
+		// Add filters for rotate and click buttons
+		if(option.id === "left") {
+			//If left btn is clicked, decrement, increment or flip rotate value by -90 
+			rotate -= 90;
+		}else if(option.id == "right") {
+			rotate += 90;
+		}else if(option.id == 'vertical') {
+			flipVertical = flipVertical === 1 ? -1 : 1; //Flip the image vertically
+		}else{
+			flipHorizontal = flipHorizontal === 1 ? -1 : 1; //Flip the image vertically
+		}
+		//Call the apply function
+		applyFilters();
+	});
+});
 
 fileInput.addEventListener("change", loadImage);
 
