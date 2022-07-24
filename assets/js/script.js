@@ -36,6 +36,7 @@ const loadImage = () => {
 	
 	// Reactivate all filters when a file is uploaded
 	previewImage.addEventListener("load", () => {
+		resetFilterBtn.click(); //Reset to default
 		document.querySelector(".container").classList.remove("disable")
 	});
 }
@@ -145,7 +146,12 @@ const saveImage = () => {
 	}
 
 	ctx.drawImage(previewImage, -canvas.width / 2, -canvas.height / 2, canvas.width, canvas.height);
-	document.body.appendChild(canvas);
+
+	//Download image
+	const link = document.createElement("a"); //creating an <a> element
+	link.download = "edited.png"; // Passing <a> tag download value to "image.jpg"
+	link.href = canvas.toDataURL(); // Passing <a> tag href value to canvas data url
+	link.click(); //clicking <a> tag to the image download
 }
 
 fileInput.addEventListener("change", loadImage);
