@@ -48,7 +48,7 @@ body{
 	margin-bottom: 12px;
 }
 
-.editor-panel .options {
+.editor-panel .options, .controls {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
@@ -76,4 +76,111 @@ body{
 	background: #5372f0;
 	border-color: #5372f0;
 }
+
+.filter .slider {
+	margin-top: 12px;
+}
+
+.filter .slider .filter-info {
+	display: flex;
+	color: #464646;
+	justify-content: space-between;
+}
+
+.filter .slider input {
+	width: 100%;
+	height: 5px;
+	accent-color: #5372f0;
+	margin-bottom: 10px;
+}
+
+.editor-panel .rotate button{
+	width: calc(100% / 4 - 3px);
+}
+
+.rotate button:nth-child(3),
+.rotate button:nth-child(4){
+	font-size: 28px;
+}
+
+.wrapper .preview-image {
+	flex-grow: 1;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-left: 20px;
+}
+
+.preview-image img {
+	max-width: 490px;
+	max-height: 335px;
+	width: 100%;
+	height: 100%;
+	object-fit: contain;
+}
+
+.controls button {
+	font-size: 15px;
+	cursor: pointer;
+	color: #fff;
+	background: #fff;
+	padding: 11px 20px;
+	border-radius: 3px;
+	/*text-transform: uppercase;*/
+}
+
+.controls .reset-filter {
+	font-size: 20px;
+	color: #222;
+	border: 1px solid #6c757d;
+}
+
+.controls .choose-img {
+	background: #5372f0;
+	font-size: 30px;
+	border: 1px solid #6c757d;
+}
+
+.controls .save-img {
+	background: #0FCBA6;
+	font-size: 30px;
+	border: 1px solid #0FCBA6;
+}
 /*=================== //container ================*/
+
+
+/*======================= Media Quaries ==================*/
+@media screen and (max-width:  760px) {
+	.container{
+		padding: 25px;
+	}
+
+	.container .wrapper{
+		flex-wrap: wrap-reverse;
+	}
+
+	.wrapper .editor-panel {
+		width: 100%;
+	}
+
+	.wrapper .preview-image {
+		width: 100%;
+		margin: 0 0 15px;
+	}
+}
+
+@media screen and (max-width: 500px) {
+	.controls button {
+		width: 100%;
+		margin-bottom: 10px;
+	}
+
+	.controls .row {
+		width: 100%;
+	}
+
+	.controls .row .save-img {
+		margin-left: 0px;
+	}
+}
+/*======================= //Media Quaries ==================*/
